@@ -49,21 +49,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.text-huge {
+/* Tailwindユーティリティで上書き可能にするため @utility で定義（例: text-eyebrow text-white/80） */
+@utility text-huge {
   font-size: clamp(3.5rem, 13vw, 13rem);
   font-weight: 500;
   line-height: 0.92;
   letter-spacing: -0.05em;
 }
 
-.text-section-title {
+@utility text-section-title {
   font-size: clamp(2.25rem, 6vw, 5.5rem);
   font-weight: 500;
   letter-spacing: -0.035em;
   line-height: 1;
 }
 
-.text-eyebrow {
+@utility text-eyebrow {
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -71,35 +72,21 @@ body {
   color: var(--foreground-muted);
 }
 
+/* ページ共通コンテナ（Section内部とサブページで共用） */
+@utility container-page {
+  max-width: var(--breakpoint-2xl);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+
+  @media (width >= 48rem) {
+    padding-inline: 3rem;
+  }
+}
+
 .divider {
   border: 0;
   border-top: 1px solid var(--rule);
   margin: 0;
-}
-
-.list-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: baseline;
-  gap: 1.5rem;
-  padding: 1.75rem 0;
-  border-top: 1px solid var(--rule);
-  transition: padding 0.3s ease;
-}
-
-.list-row:last-child {
-  border-bottom: 1px solid var(--rule);
-}
-
-.list-row:hover .list-row-arrow {
-  transform: translateX(4px);
-  color: var(--accent);
-}
-
-.list-row-arrow {
-  display: inline-flex;
-  align-items: center;
-  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {

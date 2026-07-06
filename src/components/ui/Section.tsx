@@ -15,7 +15,9 @@ export function Section({ children, className = '', id }: SectionProps) {
             id={id}
             className={`py-24 md:py-40 ${className}`}
         >
-            {children}
+            <div className="container-page">
+                {children}
+            </div>
         </section>
     );
 }

@@ -52,12 +52,12 @@ export function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-[var(--background)]/85 backdrop-blur-md border-b border-[var(--rule)] z-50">
+    <nav className="fixed top-0 left-0 right-0 bg-background/85 backdrop-blur-md border-b border-rule z-50">
       <div className="w-full px-6 md:px-12">
         <div className="flex justify-between items-center h-14 md:h-16">
           <a
             href="#"
-            className="text-sm md:text-base font-medium tracking-tight text-[var(--foreground)]"
+            className="text-sm md:text-base font-medium tracking-tight text-foreground"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -79,8 +79,8 @@ export function Navigation() {
                   }}
                   className={`relative text-sm tracking-tight cursor-pointer transition-colors ${
                     activeSection === item.key
-                      ? 'text-[var(--foreground)] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:bg-[var(--accent)]'
-                      : 'text-[var(--foreground-muted)] hover:text-[var(--foreground)]'
+                      ? 'text-foreground after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:bg-accent'
+                      : 'text-foreground-muted hover:text-foreground'
                   }`}
                 >
                   {item.label}
@@ -120,18 +120,18 @@ export function Navigation() {
                 e.preventDefault();
                 handleScroll(item.href);
               }}
-              className={`block py-3 text-base tracking-tight border-t border-[var(--rule)] cursor-pointer transition-colors ${
+              className={`block py-3 text-base tracking-tight border-t border-rule cursor-pointer transition-colors ${
                 activeSection === item.key
-                  ? 'text-[var(--foreground)]'
-                  : 'text-[var(--foreground-muted)] hover:text-[var(--foreground)]'
+                  ? 'text-foreground'
+                  : 'text-foreground-muted hover:text-foreground'
               }`}
             >
               {item.label}
             </a>
           ))}
 
-          <div className="md:hidden flex items-center gap-3 pt-4 border-t border-[var(--rule)] mt-2">
-            <span className="text-xs uppercase tracking-widest text-[var(--foreground-muted)]">Language</span>
+          <div className="md:hidden flex items-center gap-3 pt-4 border-t border-rule mt-2">
+            <span className="text-xs uppercase tracking-widest text-foreground-muted">Language</span>
             <LanguageToggle />
           </div>
         </div>

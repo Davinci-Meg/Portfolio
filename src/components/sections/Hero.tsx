@@ -69,10 +69,10 @@ export function Hero() {
             {/* Bottom row: socials + scroll cue */}
             <div className="relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-12 text-white">
                 <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs md:text-sm tracking-[0.18em] uppercase">
-                    <a href={profileData.socialLinks.github} target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-[var(--accent)] transition-colors">GitHub</a>
-                    <a href={profileData.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-[var(--accent)] transition-colors">Facebook</a>
-                    <a href={profileData.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-[var(--accent)] transition-colors">Instagram</a>
-                    <a href={profileData.socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-[var(--accent)] transition-colors">YouTube</a>
+                    <a href={profileData.socialLinks.github} target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-accent transition-colors">GitHub</a>
+                    <a href={profileData.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-accent transition-colors">Facebook</a>
+                    <a href={profileData.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-accent transition-colors">Instagram</a>
+                    <a href={profileData.socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-accent transition-colors">YouTube</a>
                 </div>
                 <div className="flex items-center gap-3 text-xs tracking-[0.18em] uppercase text-white/80">
                     <span>Scroll</span>

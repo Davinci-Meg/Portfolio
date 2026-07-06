@@ -11,25 +11,23 @@ export function Profile() {
 
     return (
         <Section id="profile">
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-                <p className="text-eyebrow mb-8">01 / Profile</p>
-                <h2 className="text-section-title mb-12 md:mb-32">About</h2>
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 md:items-start">
-                    <div className="md:col-span-7 order-2 md:order-1">
-                        <p className="whitespace-pre-line leading-relaxed text-base md:text-lg text-[var(--foreground)]/80">
-                            {profileData.description[currentLanguage]}
-                        </p>
-                    </div>
+            <p className="text-eyebrow mb-8">01 / Profile</p>
+            <h2 className="text-section-title mb-12 md:mb-32">About</h2>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 md:items-start">
+                <div className="md:col-span-7 order-2 md:order-1">
+                    <p className="whitespace-pre-line leading-relaxed text-base md:text-lg text-foreground/80">
+                        {profileData.description[currentLanguage]}
+                    </p>
+                </div>
 
-                    <div className="md:col-span-5 order-1 md:order-2">
-                        <div className="relative w-full aspect-[4/3] overflow-hidden">
-                            <Image
-                                src={getImagePath('/images/profile/profile-rectangle-v2.webp')}
-                                alt="Profile"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
+                <div className="md:col-span-5 order-1 md:order-2">
+                    <div className="relative w-full aspect-[4/3] overflow-hidden">
+                        <Image
+                            src={getImagePath('/images/profile/profile-rectangle-v2.webp')}
+                            alt="Profile"
+                            fill
+                            className="object-cover"
+                        />
                     </div>
                 </div>
             </div>
