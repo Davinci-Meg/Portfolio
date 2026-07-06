@@ -124,19 +124,6 @@ export const awardsData: Award[] = [
   },
   // 2024年
   {
-    id: 'award-2024-1',
-    title: {
-      ja: '第28回 一般社団法人情報処理学会シンポジウム INTERACTION2024',
-      en: 'Accepted A Paper at The 28th Symposium of the IPSJ INTERACTION 2024'
-    },
-    prize: {
-      ja: '採択',
-      en: 'Paper Accepted'
-    },
-    url: 'https://www.interaction-ipsj.org/2024/',
-    year: 2024
-  },
-  {
     id: 'award-2024-2',
     title: {
       ja: '国立情報学研究所 情報科学の達人プログラム2024',
@@ -151,19 +138,6 @@ export const awardsData: Award[] = [
     selected: true
   },
   {
-    id: 'award-2024-3',
-    title: {
-      ja: '第28回 一般社団法人情報処理学会シンポジウム INTERACTION2024',
-      en: 'Demo Presentation at The 28th Symposium of the IPSJ INTERACTION 2024'
-    },
-    prize: {
-      ja: 'デモ発表（一般投票にて上位に選出）',
-      en: 'Selected in top rankings by general voting'
-    },
-    url: 'https://www.interaction-ipsj.org/2024/',
-    year: 2024
-  },
-  {
     id: 'award-2024-4',
     title: {
       ja: 'Project of the Year 2024/3DEXPERIENCE Edu',
@@ -176,32 +150,6 @@ export const awardsData: Award[] = [
     url: 'https://youtu.be/M5Tu90vtmLs?si=zgNnyMZ5u8CpYRZi',
     year: 2024,
     selected: true
-  },
-  {
-    id: 'award-2024-5',
-    title: {
-      ja: '高専キャリア起業部2024 夏の全国大会',
-      en: 'KOSEN Career Entrepreneurship Club 2024 Summer National Convention'
-    },
-    prize: {
-      ja: 'ソフトバンク賞＆DEEPCORE賞',
-      en: 'SoftBank Award & DEEPCORE Award'
-    },
-    url: 'https://x.com/kosen_career/status/1830140405280882815?s=46',
-    year: 2024
-  },
-  {
-    id: 'award-2024-6',
-    title: {
-      ja: '関西テック・クリエイター・チャレンジ CA(Cybernetic Avatar)集中講座',
-      en: 'KANSAI Tech Creator Challenge - Cybernetic Avatar Intensive Course'
-    },
-    prize: {
-      ja: '関西テック・クリエイター・チャレンジ賞',
-      en: 'Kansai Tech Creator Challenge Award'
-    },
-    url: 'https://kansai-tcc.dle.or.jp/ca2024/',
-    year: 2024
   },
   {
     id: 'award-2024-7',
