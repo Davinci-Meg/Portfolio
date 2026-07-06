@@ -24,7 +24,7 @@ export function Publications() {
             data-reveal=""
             style={revealDelay(Math.min(index, 5))}
           >
-            <p className="col-span-12 md:col-span-3 text-xs md:text-sm font-mono text-foreground-muted leading-relaxed">
+            <p className="col-span-12 md:col-span-3 text-sm font-mono text-foreground-muted leading-relaxed">
               {publication.authors[currentLanguage]}
             </p>
             <div className="col-span-12 md:col-span-9">

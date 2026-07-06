@@ -43,15 +43,15 @@ function AwardsPageContent() {
                       href={award.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="grid grid-cols-12 gap-4 md:gap-8 py-6 md:py-8 items-baseline cursor-pointer transition-colors hover:bg-rule/30"
+                      className="grid grid-cols-[1fr_auto] md:grid-cols-12 gap-4 md:gap-8 py-6 md:py-8 items-baseline cursor-pointer transition-colors hover:bg-rule/30 active:bg-rule/40"
                     >
-                      <p className="col-span-12 md:col-span-3 text-eyebrow md:text-sm">
+                      <p className="col-span-2 md:col-span-3 text-eyebrow md:text-sm">
                         {award.prize[currentLanguage]}
                       </p>
-                      <h3 className="col-span-10 md:col-span-8 text-base md:text-xl font-medium leading-snug tracking-tight group-hover:text-accent transition-colors">
+                      <h3 className="md:col-span-8 text-base md:text-xl font-medium leading-snug tracking-tight group-hover:text-accent transition-colors">
                         {award.title[currentLanguage]}
                       </h3>
-                      <span className="col-span-2 md:col-span-1 flex justify-end text-foreground-muted group-hover:text-accent transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                      <span className="md:col-span-1 flex justify-end text-foreground-muted group-hover:text-accent transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                         <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
                       </span>
                     </a>

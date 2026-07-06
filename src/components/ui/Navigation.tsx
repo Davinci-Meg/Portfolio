@@ -110,29 +110,39 @@ export function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        <div className={`xl:hidden pb-6 ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
-          {navigationItems.map((item) => (
-            <a
-              key={item.key}
-              href={item.href}
-              onClick={(e) => {
-                e.preventDefault();
-                handleScroll(item.href);
-              }}
-              className={`block py-3 text-base tracking-tight border-t border-rule cursor-pointer transition-colors ${
-                activeSection === item.key
-                  ? 'text-foreground'
-                  : 'text-foreground-muted hover:text-foreground'
-              }`}
-            >
-              {item.label}
-            </a>
-          ))}
+        {/* Mobile Navigation（grid-template-rows 0fr→1fr で高さをアニメーション） */}
+        <div
+          aria-hidden={!isMobileMenuOpen}
+          className={`xl:hidden grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+            isMobileMenuOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'
+          }`}
+        >
+          <div className="overflow-hidden">
+            <div className="pb-6">
+              {navigationItems.map((item) => (
+                <a
+                  key={item.key}
+                  href={item.href}
+                  tabIndex={isMobileMenuOpen ? undefined : -1}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleScroll(item.href);
+                  }}
+                  className={`block py-3 text-base tracking-tight border-t border-rule cursor-pointer transition-colors ${
+                    activeSection === item.key
+                      ? 'text-foreground'
+                      : 'text-foreground-muted hover:text-foreground'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              ))}
 
-          <div className="md:hidden flex items-center gap-3 pt-4 border-t border-rule mt-2">
-            <span className="text-eyebrow">Language</span>
-            <LanguageToggle />
+              <div className="md:hidden flex items-center gap-3 pt-4 border-t border-rule mt-2">
+                <span className="text-eyebrow">Language</span>
+                <LanguageToggle />
+              </div>
+            </div>
           </div>
         </div>
       </div>

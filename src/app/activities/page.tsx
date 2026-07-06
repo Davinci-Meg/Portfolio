@@ -39,17 +39,17 @@ function ActivitiesPageContent() {
                 href={activity.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="grid grid-cols-12 gap-4 md:gap-8 py-5 md:py-6 items-baseline cursor-pointer transition-colors hover:bg-rule/30"
+                className="grid grid-cols-[1fr_auto] md:grid-cols-12 gap-4 md:gap-8 py-5 md:py-6 items-baseline cursor-pointer transition-colors hover:bg-rule/30 active:bg-rule/40"
               >
-                <h3 className="col-span-12 md:col-span-8 text-base md:text-xl font-medium leading-snug tracking-tight group-hover:text-accent transition-colors">
+                <h3 className="md:col-span-8 text-base md:text-xl font-medium leading-snug tracking-tight group-hover:text-accent transition-colors">
                   {activity.title[currentLanguage]}
                 </h3>
-                <p className="col-span-10 md:col-span-3 text-sm md:text-base text-foreground-muted">
-                  {activity.role[currentLanguage]}
-                </p>
-                <span className="col-span-2 md:col-span-1 flex justify-end text-foreground-muted group-hover:text-accent transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                <span className="md:order-last md:col-span-1 flex justify-end text-foreground-muted group-hover:text-accent transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                   <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
                 </span>
+                <p className="col-span-2 md:col-span-3 text-sm md:text-base text-foreground-muted">
+                  {activity.role[currentLanguage]}
+                </p>
               </a>
             </li>
           ))}
