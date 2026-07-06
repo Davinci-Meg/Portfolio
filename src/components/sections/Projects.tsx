@@ -12,8 +12,11 @@ export function Projects() {
 
   return (
     <Section id="projects">
-      <p className="text-eyebrow mb-8">07 / Projects</p>
-      <h2 className="text-section-title mb-4 md:mb-6">{t('sections.projects')}</h2>
+      <p className="text-eyebrow mb-6">07 / Projects</p>
+      <div className="flex items-baseline justify-between gap-6 mb-4 md:mb-6">
+        <h2 className="text-section-title">{t('sections.projects')}</h2>
+        <span className="font-mono text-sm md:text-base tabular-nums text-foreground-muted whitespace-nowrap">( {projectsData.length} )</span>
+      </div>
 
       <div className="flex flex-col">
         {projectsData.map((project, index) => (

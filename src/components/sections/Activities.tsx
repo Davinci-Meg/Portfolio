@@ -12,10 +12,13 @@ export function Activities() {
 
   return (
     <Section id="activities">
-      <p className="text-eyebrow mb-8">06 / Activities</p>
-      <h2 className="text-section-title mb-20 md:mb-32">{t('sections.activities')}</h2>
+      <p className="text-eyebrow mb-6">06 / Activities</p>
+      <div className="flex items-baseline justify-between gap-6 mb-14 md:mb-24">
+        <h2 className="text-section-title">{t('sections.activities')}</h2>
+        <span className="font-mono text-sm md:text-base tabular-nums text-foreground-muted whitespace-nowrap">( {selectedActivities.length} )</span>
+      </div>
 
-      <ul className="border-t border-rule">
+      <ul className="border-t border-foreground">
         {selectedActivities.map((activity) => (
           <li key={activity.id} className="border-b border-rule group">
             <a
@@ -32,7 +35,7 @@ export function Activities() {
               <p className="col-span-10 md:col-span-3 text-sm md:text-base text-foreground-muted">
                 {activity.role[currentLanguage]}
               </p>
-              <span className="col-span-2 md:col-span-1 flex justify-end text-foreground-muted group-hover:text-accent transition-all duration-300 group-hover:translate-x-1">
+              <span className="col-span-2 md:col-span-1 flex justify-end text-foreground-muted group-hover:text-accent transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                 <ArrowUpRight className="w-5 h-5" />
               </span>
             </a>
@@ -43,7 +46,7 @@ export function Activities() {
       <div className="mt-12 md:mt-16">
         <Link
           href="/activities"
-          className="inline-flex items-center gap-2 text-sm tracking-[0.18em] uppercase text-foreground hover:text-accent transition-colors"
+          className="inline-flex items-center gap-2 text-eyebrow text-sm text-foreground hover:text-accent transition-colors"
         >
           {t('ui.viewAll')} <ArrowRight className="w-4 h-4" />
         </Link>

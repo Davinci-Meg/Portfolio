@@ -131,7 +131,7 @@ export function Navigation() {
           ))}
 
           <div className="md:hidden flex items-center gap-3 pt-4 border-t border-rule mt-2">
-            <span className="text-xs uppercase tracking-widest text-foreground-muted">Language</span>
+            <span className="text-eyebrow">Language</span>
             <LanguageToggle />
           </div>
         </div>

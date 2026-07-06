@@ -16,14 +16,17 @@ function AwardsPageContent() {
       <div className="container-page py-24 md:py-32">
         <Link
           href="/#awards"
-          className="inline-flex items-center gap-2 text-xs tracking-[0.18em] uppercase text-foreground-muted hover:text-foreground transition-colors mb-16 md:mb-24"
+          className="inline-flex items-center gap-2 text-eyebrow hover:text-foreground transition-colors mb-16 md:mb-24"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Portfolio</span>
         </Link>
 
-        <p className="text-eyebrow mb-8">Index / Awards</p>
-        <h1 className="text-section-title mb-20 md:mb-32">Awards &amp; Honors</h1>
+        <p className="text-eyebrow mb-6">Index / Awards</p>
+        <div className="flex items-baseline justify-between gap-6 mb-14 md:mb-24">
+          <h1 className="text-section-title">Awards &amp; Honors</h1>
+          <span className="font-mono text-sm md:text-base tabular-nums text-foreground-muted whitespace-nowrap">( {awardsData.length} )</span>
+        </div>
 
         <div>
           {years.map((year) => (
@@ -40,13 +43,13 @@ function AwardsPageContent() {
                       rel="noopener noreferrer"
                       className="grid grid-cols-12 gap-4 md:gap-8 py-6 md:py-8 items-baseline cursor-pointer transition-colors hover:bg-rule/30"
                     >
-                      <p className="col-span-12 md:col-span-3 text-xs md:text-sm tracking-[0.12em] uppercase text-foreground-muted">
+                      <p className="col-span-12 md:col-span-3 text-eyebrow md:text-sm">
                         {award.prize[currentLanguage]}
                       </p>
                       <h3 className="col-span-10 md:col-span-8 text-base md:text-xl font-medium leading-snug tracking-tight group-hover:text-accent transition-colors">
                         {award.title[currentLanguage]}
                       </h3>
-                      <span className="col-span-2 md:col-span-1 flex justify-end text-foreground-muted group-hover:text-accent transition-all duration-300 group-hover:translate-x-1">
+                      <span className="col-span-2 md:col-span-1 flex justify-end text-foreground-muted group-hover:text-accent transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                         <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
                       </span>
                     </a>

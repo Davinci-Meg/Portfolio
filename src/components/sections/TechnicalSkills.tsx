@@ -10,10 +10,10 @@ export function TechnicalSkills() {
 
   return (
     <Section id="skills">
-      <p className="text-eyebrow mb-8">04 / Skills</p>
-      <h2 className="text-section-title mb-20 md:mb-32">{t('sections.skills')}</h2>
+      <p className="text-eyebrow mb-6">04 / Skills</p>
+      <h2 className="text-section-title mb-14 md:mb-24">{t('sections.skills')}</h2>
 
-      <div className="border-t border-rule">
+      <div className="border-t border-foreground">
         {categories.map((category) => {
           const skillsInCategory = skillsData.filter(skill => skill.category === category);
 

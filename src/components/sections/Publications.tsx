@@ -9,10 +9,13 @@ export function Publications() {
 
   return (
     <Section id="publications">
-      <p className="text-eyebrow mb-8">03 / Publications</p>
-      <h2 className="text-section-title mb-20 md:mb-32">{t('sections.publications')}</h2>
+      <p className="text-eyebrow mb-6">03 / Publications</p>
+      <div className="flex items-baseline justify-between gap-6 mb-14 md:mb-24">
+        <h2 className="text-section-title">{t('sections.publications')}</h2>
+        <span className="font-mono text-sm md:text-base tabular-nums text-foreground-muted whitespace-nowrap">( {publicationsData.length} )</span>
+      </div>
 
-      <ul className="border-t border-rule">
+      <ul className="border-t border-foreground">
         {publicationsData.map((publication) => (
           <li
             key={publication.id}
@@ -22,7 +25,7 @@ export function Publications() {
               {publication.authors[currentLanguage]}
             </p>
             <div className="col-span-12 md:col-span-9">
-              <h3 className="text-xl md:text-3xl font-medium leading-snug tracking-tight mb-3">
+              <h3 className="text-lg md:text-2xl font-medium leading-snug tracking-tight mb-3">
                 &ldquo;{publication.title[currentLanguage]}&rdquo;
               </h3>
               <p className="text-sm md:text-base text-foreground-muted">
