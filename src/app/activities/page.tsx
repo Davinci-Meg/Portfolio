@@ -2,14 +2,16 @@
 
 import { LanguageProvider, useTranslation } from '@/hooks/useTranslation';
 import { activitiesData } from '@/lib/data/activities';
+import { useReveal, revealDelay } from '@/hooks/useReveal';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 
 function ActivitiesPageContent() {
   const { currentLanguage } = useTranslation();
+  const revealRef = useReveal<HTMLDivElement>();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div ref={revealRef} className="min-h-screen bg-background">
       <div className="container-page py-24 md:py-32">
         <Link
           href="/#activities"
@@ -19,8 +21,8 @@ function ActivitiesPageContent() {
           <span>Portfolio</span>
         </Link>
 
-        <p className="text-eyebrow mb-6">Index / Activities</p>
-        <div className="flex items-baseline justify-between gap-6 mb-14 md:mb-24">
+        <p className="text-eyebrow mb-6" data-reveal="">Index / Activities</p>
+        <div className="flex items-baseline justify-between gap-6 mb-14 md:mb-24" data-reveal="" style={revealDelay(1)}>
           <h1 className="text-section-title">Exhibitions &amp; Activities</h1>
           <span className="font-mono text-sm md:text-base tabular-nums text-foreground-muted whitespace-nowrap">( {activitiesData.length} )</span>
         </div>
@@ -31,8 +33,8 @@ function ActivitiesPageContent() {
         </div>
 
         <ul>
-          {activitiesData.map((activity) => (
-            <li key={activity.id} className="border-b border-rule group">
+          {activitiesData.map((activity, index) => (
+            <li key={activity.id} className="border-b border-rule group" data-reveal="" style={revealDelay(Math.min(index, 5))}>
               <a
                 href={activity.url}
                 target="_blank"

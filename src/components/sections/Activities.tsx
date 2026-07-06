@@ -3,6 +3,7 @@
 import { useTranslation } from '@/hooks/useTranslation';
 import { activitiesData } from '@/lib/data/activities';
 import { Section } from '@/components/ui/Section';
+import { revealDelay } from '@/hooks/useReveal';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -12,15 +13,15 @@ export function Activities() {
 
   return (
     <Section id="activities">
-      <p className="text-eyebrow mb-6">06 / Activities</p>
-      <div className="flex items-baseline justify-between gap-6 mb-14 md:mb-24">
+      <p className="text-eyebrow mb-6" data-reveal="">06 / Activities</p>
+      <div className="flex items-baseline justify-between gap-6 mb-14 md:mb-24" data-reveal="" style={revealDelay(1)}>
         <h2 className="text-section-title">{t('sections.activities')}</h2>
         <span className="font-mono text-sm md:text-base tabular-nums text-foreground-muted whitespace-nowrap">( {selectedActivities.length} )</span>
       </div>
 
       <ul className="border-t border-foreground">
-        {selectedActivities.map((activity) => (
-          <li key={activity.id} className="border-b border-rule group">
+        {selectedActivities.map((activity, index) => (
+          <li key={activity.id} className="border-b border-rule group" data-reveal="" style={revealDelay(Math.min(index, 5))}>
             <a
               href={activity.url}
               target="_blank"
@@ -43,7 +44,7 @@ export function Activities() {
         ))}
       </ul>
 
-      <div className="mt-12 md:mt-16">
+      <div className="mt-12 md:mt-16" data-reveal="">
         <Link
           href="/activities"
           className="inline-flex items-center gap-2 text-eyebrow text-sm text-foreground hover:text-accent transition-colors"

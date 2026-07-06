@@ -3,6 +3,7 @@
 import { useTranslation } from '@/hooks/useTranslation';
 import { awardsData } from '@/lib/data/awards';
 import { Section } from '@/components/ui/Section';
+import { revealDelay } from '@/hooks/useReveal';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -12,15 +13,15 @@ export function Awards() {
 
   return (
     <Section id="awards">
-      <p className="text-eyebrow mb-6">02 / Awards</p>
-      <div className="flex items-baseline justify-between gap-6 mb-14 md:mb-24">
+      <p className="text-eyebrow mb-6" data-reveal="">02 / Awards</p>
+      <div className="flex items-baseline justify-between gap-6 mb-14 md:mb-24" data-reveal="" style={revealDelay(1)}>
         <h2 className="text-section-title">{t('sections.awards')}</h2>
         <span className="font-mono text-sm md:text-base tabular-nums text-foreground-muted whitespace-nowrap">( {selectedAwards.length} )</span>
       </div>
 
       <ul className="border-t border-foreground">
-        {selectedAwards.map((award) => (
-          <li key={award.id} className="border-b border-rule group">
+        {selectedAwards.map((award, index) => (
+          <li key={award.id} className="border-b border-rule group" data-reveal="" style={revealDelay(Math.min(index, 5))}>
             <a
               href={award.url}
               target="_blank"
@@ -44,7 +45,7 @@ export function Awards() {
         ))}
       </ul>
 
-      <div className="mt-12 md:mt-16">
+      <div className="mt-12 md:mt-16" data-reveal="">
         <Link
           href="/awards"
           className="inline-flex items-center gap-2 text-eyebrow text-sm text-foreground hover:text-accent transition-colors"

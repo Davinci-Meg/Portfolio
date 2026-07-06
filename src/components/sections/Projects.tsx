@@ -6,14 +6,15 @@ import { projectsData } from '@/lib/data/projects';
 import { getImagePath } from '@/lib/utils';
 import { getBlurDataURL } from '@/lib/imageBlur';
 import { Section } from '@/components/ui/Section';
+import { revealDelay } from '@/hooks/useReveal';
 
 export function Projects() {
   const { t, currentLanguage } = useTranslation();
 
   return (
     <Section id="projects">
-      <p className="text-eyebrow mb-6">07 / Projects</p>
-      <div className="flex items-baseline justify-between gap-6 mb-4 md:mb-6">
+      <p className="text-eyebrow mb-6" data-reveal="">07 / Projects</p>
+      <div className="flex items-baseline justify-between gap-6 mb-4 md:mb-6" data-reveal="" style={revealDelay(1)}>
         <h2 className="text-section-title">{t('sections.projects')}</h2>
         <span className="font-mono text-sm md:text-base tabular-nums text-foreground-muted whitespace-nowrap">( {projectsData.length} )</span>
       </div>
@@ -23,6 +24,7 @@ export function Projects() {
           <article
             key={project.id}
             className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-[auto_1fr] gap-x-12 gap-y-6 md:gap-y-8 py-12 md:py-20 border-t border-rule first:border-t-0"
+            data-reveal=""
           >
             <header className="order-1 md:order-none md:col-span-5 md:col-start-8 md:row-start-1">
               <div className="flex items-center justify-between mb-6">

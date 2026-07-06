@@ -3,6 +3,7 @@
 import { LanguageProvider, useTranslation } from '@/hooks/useTranslation';
 import { awardsData } from '@/lib/data/awards';
 import { groupByYear } from '@/lib/utils';
+import { useReveal, revealDelay } from '@/hooks/useReveal';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -10,9 +11,10 @@ function AwardsPageContent() {
   const { currentLanguage } = useTranslation();
   const groupedAwards = groupByYear(awardsData);
   const years = Object.keys(groupedAwards).map(Number).sort((a, b) => b - a);
+  const revealRef = useReveal<HTMLDivElement>();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div ref={revealRef} className="min-h-screen bg-background">
       <div className="container-page py-24 md:py-32">
         <Link
           href="/#awards"
@@ -22,8 +24,8 @@ function AwardsPageContent() {
           <span>Portfolio</span>
         </Link>
 
-        <p className="text-eyebrow mb-6">Index / Awards</p>
-        <div className="flex items-baseline justify-between gap-6 mb-14 md:mb-24">
+        <p className="text-eyebrow mb-6" data-reveal="">Index / Awards</p>
+        <div className="flex items-baseline justify-between gap-6 mb-14 md:mb-24" data-reveal="" style={revealDelay(1)}>
           <h1 className="text-section-title">Awards &amp; Honors</h1>
           <span className="font-mono text-sm md:text-base tabular-nums text-foreground-muted whitespace-nowrap">( {awardsData.length} )</span>
         </div>
@@ -31,12 +33,12 @@ function AwardsPageContent() {
         <div>
           {years.map((year) => (
             <section key={year} className="mb-16 md:mb-24">
-              <h2 className="text-3xl md:text-5xl font-medium tabular-nums tracking-tight pb-4 border-b border-foreground">
+              <h2 className="text-3xl md:text-5xl font-medium tabular-nums tracking-tight pb-4 border-b border-foreground" data-reveal="">
                 {year}
               </h2>
               <ul>
-                {groupedAwards[year].map((award) => (
-                  <li key={award.id} className="border-b border-rule group">
+                {groupedAwards[year].map((award, index) => (
+                  <li key={award.id} className="border-b border-rule group" data-reveal="" style={revealDelay(Math.min(index, 5))}>
                     <a
                       href={award.url}
                       target="_blank"

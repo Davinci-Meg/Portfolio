@@ -3,6 +3,7 @@
 import { useTranslation } from '@/hooks/useTranslation';
 import { mediaCoverageData } from '@/lib/data/media';
 import { Section } from '@/components/ui/Section';
+import { revealDelay } from '@/hooks/useReveal';
 import { ArrowUpRight } from 'lucide-react';
 
 export function MediaCoverage() {
@@ -10,15 +11,15 @@ export function MediaCoverage() {
 
   return (
     <Section id="media">
-      <p className="text-eyebrow mb-6">05 / Media</p>
-      <div className="flex items-baseline justify-between gap-6 mb-14 md:mb-24">
+      <p className="text-eyebrow mb-6" data-reveal="">05 / Media</p>
+      <div className="flex items-baseline justify-between gap-6 mb-14 md:mb-24" data-reveal="" style={revealDelay(1)}>
         <h2 className="text-section-title">{t('sections.media')}</h2>
         <span className="font-mono text-sm md:text-base tabular-nums text-foreground-muted whitespace-nowrap">( {mediaCoverageData.length} )</span>
       </div>
 
       <ul className="border-t border-foreground">
-        {mediaCoverageData.map((media) => (
-          <li key={media.id} className="border-b border-rule group">
+        {mediaCoverageData.map((media, index) => (
+          <li key={media.id} className="border-b border-rule group" data-reveal="" style={revealDelay(Math.min(index, 5))}>
             <a
               href={media.url}
               target="_blank"
