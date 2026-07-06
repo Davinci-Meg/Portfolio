@@ -29,7 +29,7 @@ export function Hero() {
     }, []);
 
     return (
-        <section className="min-h-screen relative flex flex-col px-6 md:px-12 pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden">
+        <section className="min-h-svh relative flex flex-col px-6 md:px-12 pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden">
             {/* Background Slideshow */}
             <div className="absolute inset-0 z-0 bg-black">
                 {HERO_IMAGES.map((src, index) => (
@@ -42,32 +42,34 @@ export function Hero() {
                             src={getImagePath(src)}
                             alt="Hero Background"
                             fill
-                            className="object-cover"
+                            className={`object-cover transition-transform duration-[8000ms] ease-out ${index === currentImageIndex ? 'scale-105' : 'scale-100'
+                                }`}
                             priority={index === 0}
                         />
-                        <div className="absolute inset-0 bg-black/45" />
+                        {/* 上下端はテキストのコントラストを確保し、中央は画像を見せる */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/60" />
                     </div>
                 ))}
             </div>
 
             {/* Top eyebrow */}
-            <div className="relative z-10 flex justify-between items-start text-eyebrow text-white/80">
+            <div className="relative z-10 flex justify-between items-start text-eyebrow text-white/80 animate-fade-up [animation-delay:300ms]">
                 <span>Portfolio — 2026</span>
                 <span className="hidden md:inline">Hokkaido, JP</span>
             </div>
 
             {/* Title block */}
             <div className="relative z-10 flex-1 flex flex-col justify-center items-center text-center max-w-screen-2xl w-full mx-auto">
-                <h1 className="text-huge text-white break-words mb-8 md:mb-10">
+                <h1 className="text-huge text-white break-words mb-8 md:mb-10 animate-fade-up">
                     {profileData.name[currentLanguage]}
                 </h1>
-                <p className="text-base md:text-xl lg:text-2xl text-white/90 font-light tracking-tight max-w-3xl">
+                <p className="text-base md:text-xl lg:text-2xl text-white/90 font-light tracking-tight max-w-3xl animate-fade-up [animation-delay:150ms]">
                     {interestTags.join(' / ')}
                 </p>
             </div>
 
             {/* Bottom row: socials + scroll cue */}
-            <div className="relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-12 text-white">
+            <div className="relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-12 text-white animate-fade-up [animation-delay:300ms]">
                 <div className="flex flex-wrap gap-x-6 gap-y-2 text-eyebrow md:text-sm text-white">
                     <a href={profileData.socialLinks.github} target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-accent transition-colors">GitHub</a>
                     <a href={profileData.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-accent transition-colors">Facebook</a>
